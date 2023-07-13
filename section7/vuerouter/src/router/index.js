@@ -5,6 +5,9 @@ import BookList from "../views/BookList.vue";
 import BookDetail from "@/components/BookDetail.vue";
 import ItemList from "../views/ItemList.vue";
 import NotFound from "@/components/NotFound.vue";
+import UserInfo from "@/views/UserInfo.vue";
+import UserProfile from "@/components/UserProfile.vue";
+import UserPost from "@/components/UserPost.vue";
 
 Vue.use(VueRouter);
 
@@ -48,6 +51,20 @@ const routes = [
     path: "/item/:id",
     name: "ItemList",
     component: ItemList,
+  },
+  {
+    path: "/user",
+    component: UserInfo,
+    children: [
+      {
+        path: "profile",
+        component: UserProfile,
+      },
+      {
+        path: "post",
+        component: UserPost,
+      },
+    ],
   },
 ];
 
